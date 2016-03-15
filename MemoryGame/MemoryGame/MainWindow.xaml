@@ -1,0 +1,15 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MemoryGame"
+        xmlns:Views="clr-namespace:MemoryGame.Views" x:Class="MemoryGame.MainWindow"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="338.598">
+    <Grid>
+
+        <Views:GameView HorizontalAlignment="Left" VerticalAlignment="Top" Height="319" Width="333" Loaded="GameView_Loaded"/>
+
+    </Grid>
+</Window>
