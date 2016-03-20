@@ -23,6 +23,7 @@ namespace MemoryGame
         public MainWindow()
         {
             InitializeComponent();
+
         }
 
         private void GameView_Loaded(object sender, RoutedEventArgs e)
