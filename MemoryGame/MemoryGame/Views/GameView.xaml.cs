@@ -28,6 +28,7 @@ namespace MemoryGame.Views
         public GameView()
         {
             InitializeComponent();
+            _gameModel = new MemoryGameModel();
             LoadGame();
         }
 
@@ -62,7 +63,10 @@ namespace MemoryGame.Views
 
         private void ButtonOnClick(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine("Button Clicked");
+            var theButton = sender as Button;
+            var shotPosition = new Point(Grid.GetColumn(theButton), Grid.GetRow(theButton));
+            Console.WriteLine("Button Clicked at (" + Grid.GetRow(theButton) + "," + Grid.GetColumn(theButton) + ")");
+            _gameModel.React(theButton);
         }
     }
 }

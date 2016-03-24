@@ -7,6 +7,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace MemoryGame.Models
 {
@@ -28,25 +29,32 @@ namespace MemoryGame.Models
         #region CONSTRUCTORS
         public MemoryGameModel()
         {
-            
+
             _gameBoard = new int[_size, _size];
             _boardFiller = new List<int>();
         }
         #endregion
 
-        #region METHODS
+   //     #region METHODS
         public void SetChoice(Point choice)
         {
-            if(_choiceOne == null)
+            if (_choiceOne == null)
             {
                 _choiceOne = choice;
             }
-            else{
+            else {
                 _choiceTwo = choice;
-                CheckForMatch();
+               // CheckForMatch();
             }
         }
 
+        public void React(Button theButton)
+        {
+
+            Console.WriteLine("I am reacting ");
+        }
+
+        /*
         public void CheckForMatch()
         {
             if (_choiceOne != null && _choiceTwo != null){ }
@@ -75,5 +83,6 @@ namespace MemoryGame.Models
         #endregion
 
 
+    */
     }
 }

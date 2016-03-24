@@ -5,60 +5,6 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MemoryGame.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
-    <Grid x:Name="GameView1" Background="#FF2C1616">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Label x:Name="TimerLabel" Grid.ColumnSpan="2" Content="00:00" Margin="0" FontSize="24" Foreground="White"/>
-        <Button x:Name="ResetButton" Grid.ColumnSpan="2" Content="Reset" Grid.Column="4" Margin="10"/>
-        <Label x:Name="MemLabel" Content="0" Margin="0" Grid.Row="2" FontSize="21.333" Background="#00000000" Foreground="#FFF7F5F5"/>
-        <Label x:Name="MemLabel_Copy" Content="0" Margin="0" Grid.Row="2" FontSize="21.333" Background="#00000000" Foreground="#FFF7F5F5"/>
-        <Label x:Name="MemLabel_Copy1" Content="0" Grid.Row="2" FontSize="21.333" Background="#00000000" Foreground="#FFF7F5F5" Grid.Column="1"/>
-        <Label x:Name="MemLabel_Copy2" Content="0" Grid.Row="2" FontSize="21.333" Background="#00000000" Foreground="#FFF7F5F5" Grid.Column="2"/>
-        <Label x:Name="MemLabel_Copy3" Content="0" Grid.Row="2" FontSize="21.333" Background="#00000000" Foreground="#FFF7F5F5" Grid.Column="3"/>
-        <Label x:Name="MemLabel_Copy4" Content="0" Grid.Row="2" FontSize="21.333" Background="#00000000" Foreground="#FFF7F5F5" Grid.Column="3"/>
-        <Label x:Name="MemLabel_Copy5" Content="0" Grid.Row="2" FontSize="21.333" Background="#00000000" Foreground="#FFF7F5F5" Grid.Column="4"/>
-        <Label x:Name="MemLabel_Copy6" Content="0" Grid.Row="2" FontSize="21.333" Background="#00000000" Foreground="#FFF7F5F5" Grid.Column="5"/>
-        <Label x:Name="MemLabel_Copy7" Content="0" Margin="0,36,0,0" Grid.Row="2" FontSize="21.333" Background="#00000000" Foreground="#FFF7F5F5" Grid.RowSpan="2"/>
-        <Label x:Name="MemLabel_Copy8" Content="0" Margin="0,0,0,37" Grid.Row="3" FontSize="21.333" Background="#00000000" Foreground="#FFF7F5F5" Grid.Column="1" Grid.RowSpan="2"/>
-        <Label x:Name="MemLabel_Copy9" Content="0" Grid.Row="3" FontSize="21.333" Background="#00000000" Foreground="#FFF7F5F5" Grid.Column="2"/>
-        <Label x:Name="MemLabel_Copy10" Content="0" Margin="0,1,0,37" Grid.Row="3" FontSize="21.333" Background="#00000000" Foreground="#FFF7F5F5" Grid.Column="3" Grid.RowSpan="2"/>
-        <Label x:Name="MemLabel_Copy11" Content="0" Margin="0,1,0,37" Grid.Row="3" FontSize="21.333" Background="#00000000" Foreground="#FFF7F5F5" Grid.Column="4" Grid.RowSpan="2"/>
-        <Label x:Name="MemLabel_Copy12" Content="0" Margin="0,1,0,37" Grid.Row="3" FontSize="21.333" Background="#00000000" Foreground="#FFF7F5F5" Grid.Column="5" Grid.RowSpan="2"/>
-        <Label x:Name="MemLabel_Copy13" Content="0" Margin="-5,0,5,0" Grid.Row="4" FontSize="21.333" Background="#00000000" Foreground="#FFF7F5F5"/>
-        <Label x:Name="MemLabel_Copy14" Content="0" Grid.Row="4" FontSize="21.333" Background="#00000000" Foreground="#FFF7F5F5" Grid.Column="1"/>
-        <Label x:Name="MemLabel_Copy15" Content="0" Grid.Row="4" FontSize="21.333" Background="#00000000" Foreground="#FFF7F5F5" Grid.Column="2"/>
-        <Label x:Name="MemLabel_Copy16" Content="0" Grid.Row="4" FontSize="21.333" Background="#00000000" Foreground="#FFF7F5F5" Grid.Column="3"/>
-        <Label x:Name="MemLabel_Copy17" Content="0" Grid.Row="4" FontSize="21.333" Background="#00000000" Foreground="#FFF7F5F5" Grid.Column="4"/>
-        <Label x:Name="MemLabel_Copy18" Content="0" Grid.Row="4" FontSize="21.333" Background="#00000000" Foreground="#FFF7F5F5" Grid.Column="5"/>
-        <Label x:Name="MemLabel_Copy19" Content="0" Margin="0,37,0,0" Grid.Row="4" FontSize="21.333" Background="#00000000" Foreground="#FFF7F5F5" Grid.RowSpan="2"/>
-        <Label x:Name="MemLabel_Copy20" Content="0" Margin="0,37,0,1" Grid.Row="4" FontSize="21.333" Background="#00000000" Foreground="#FFF7F5F5" Grid.Column="1" Grid.RowSpan="2"/>
-        <Label x:Name="MemLabel_Copy21" Content="0" Grid.Row="5" FontSize="21.333" Background="#00000000" Foreground="#FFF7F5F5" Grid.Column="2"/>
-        <Label x:Name="MemLabel_Copy22" Content="0" Grid.Row="5" FontSize="21.333" Background="#00000000" Foreground="#FFF7F5F5" Grid.Column="3"/>
-        <Label x:Name="MemLabel_Copy23" Content="0" Grid.Row="5" FontSize="21.333" Background="#00000000" Foreground="#FFF7F5F5" Grid.Column="4"/>
-        <Label x:Name="MemLabel_Copy24" Content="0" Margin="0,37,0,1" Grid.Row="4" FontSize="21.333" Background="#00000000" Foreground="#FFF7F5F5" Grid.Column="5" Grid.RowSpan="2"/>
-        <Label x:Name="MemLabel_Copy25" Content="0" Margin="0,0,0,35" Grid.Row="6" FontSize="21.333" Background="#00000000" Foreground="#FFF7F5F5" Grid.RowSpan="2"/>
-        <Label x:Name="MemLabel_Copy26" Content="0" Margin="0,0,0,35" Grid.Row="6" FontSize="21.333" Background="#00000000" Foreground="#FFF7F5F5" Grid.Column="1" Grid.RowSpan="2"/>
-        <Label x:Name="MemLabel_Copy27" Content="0" Margin="0,0,0,35" Grid.Row="6" FontSize="21.333" Background="#00000000" Foreground="#FFF7F5F5" Grid.Column="2" Grid.RowSpan="2"/>
-        <Label x:Name="MemLabel_Copy28" Content="0" Margin="0,0,0,35" Grid.Row="6" FontSize="21.333" Background="#00000000" Foreground="#FFF7F5F5" Grid.Column="3" Grid.RowSpan="2"/>
-        <Label x:Name="MemLabel_Copy29" Content="0" Margin="0,0,0,35" Grid.Row="6" FontSize="21.333" Background="#00000000" Foreground="#FFF7F5F5" Grid.Column="4" Grid.RowSpan="2"/>
-        <Label x:Name="MemLabel_Copy30" Content="0" Margin="0,36,0,0" Grid.Row="5" FontSize="21.333" Background="#00000000" Foreground="#FFF7F5F5" Grid.Column="5" Grid.RowSpan="2"/>
-
-    </Grid>
+             d:DesignHeight="300" d:DesignWidth="300" Background="#FFEAE2E2">
+    <Grid x:Name="GameGrid" Margin="0"/>
 </UserControl>
