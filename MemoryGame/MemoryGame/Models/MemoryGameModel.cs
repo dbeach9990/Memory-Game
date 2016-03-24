@@ -7,6 +7,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using System.Windows;
 
 namespace MemoryGame.Models
 {
@@ -22,7 +23,7 @@ namespace MemoryGame.Models
         private int[,] _gameBoard;
         private Random _rng = new Random();
         private List<int> _boardFiller;
-        private int _size = 10;
+        private int _size = 4;
         #endregion
 
         #region CONSTRUCTORS
@@ -55,7 +56,8 @@ namespace MemoryGame.Models
 
         public void PrintValueOfButton(Point p)
         {
-            Console.WriteLine("Button Value = " + _gameBoard[p.X, p.Y]);
+
+            Console.WriteLine("Button Value = " + _gameBoard[Convert.ToInt32(p.X), Convert.ToInt32(p.Y)]);
         }
 
         /*
@@ -77,6 +79,8 @@ namespace MemoryGame.Models
                 _boardFiller.Add(z + 1);
                 _boardFiller.Add(z + 1);
             }
+            Console.WriteLine("_boardFiller size after Initializing : " + _boardFiller.Count);
+
             for(int x = 0;  x < size; x++)
             {
                 for(int y = 0; y < size; y++)
@@ -84,6 +88,11 @@ namespace MemoryGame.Models
                     var rando = _rng.Next(0, _boardFiller.Count);
                     _gameBoard[x, y] = _boardFiller.ElementAt(rando);
                     _boardFiller.RemoveAt(rando);
+
+                    //DEBUGGING
+                    Console.WriteLine("_gameBoard[" + x + "," + y + "] = " + _gameBoard[x,y]);
+                    Console.WriteLine("_boardFiller size = " + _boardFiller.Count);
+
                 }
             }
         }

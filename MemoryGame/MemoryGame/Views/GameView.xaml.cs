@@ -29,29 +29,29 @@ namespace MemoryGame.Views
         {
             InitializeComponent();
             _gameModel = new MemoryGameModel();
-            _gameModel.RandomizeGameBoard(10);
+            _gameModel.RandomizeGameBoard(4);
             LoadGame();
         }
 
         public void LoadGame()
         {
 
-            for (int x = 0; x < 10; x++)
+            for (int x = 0; x < 4; x++)
             {
                 var colDef = new ColumnDefinition();
                 GameGrid.ColumnDefinitions.Add(colDef);
 
             }
-            for (int y = 0; y < 10; y++)
+            for (int y = 0; y < 4; y++)
             {
                 var rowDef = new RowDefinition();
                 GameGrid.RowDefinitions.Add(rowDef);
 
             }
 
-            for (int a = 0; a < 10; a++)
+            for (int a = 0; a < 4; a++)
             {
-                for (int b = 0; b < 10; b++)
+                for (int b = 0; b < 4; b++)
                 {
                     var button = new Button();
                     Grid.SetColumn(button, a);
@@ -65,8 +65,10 @@ namespace MemoryGame.Views
         private void ButtonOnClick(object sender, RoutedEventArgs e)
         {
             var theButton = sender as Button;
-            var shotPosition = new Point(Grid.GetColumn(theButton), Grid.GetRow(theButton));
-            Console.WriteLine(_gameModel.printValueOfButton(shotPosition));
+            var shotPosition = new Point(Grid.GetColumn(theButton), Grid.GetRow(theButton);
+
+
+            _gameModel.PrintValueOfButton(shotPosition);
             Console.WriteLine("Button Clicked at (" + Grid.GetRow(theButton) + "," + Grid.GetColumn(theButton) + ")");
             _gameModel.React(theButton);
         }
