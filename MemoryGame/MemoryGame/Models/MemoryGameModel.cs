@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows;
+using System.Threading;
 
 namespace MemoryGame.Models
 {
@@ -24,6 +25,9 @@ namespace MemoryGame.Models
         private Random _rng = new Random();
         private List<int> _boardFiller;
         private int _size = 4;
+        private Button _firstButton;
+        private Button _secondButton;
+        private int _guessCount = 0;
         #endregion
 
         #region CONSTRUCTORS
@@ -48,14 +52,34 @@ namespace MemoryGame.Models
             }
         }
 
-        public void React(Button theButton)
+        public void React(Button theButton, Point p)
         {
-
+            if(_guessCount == 0)
+            {
+                _firstButton = theButton;
+                _guessCount++;
+                _firstButton.Content = GetButtonValue(p);
+            }
+            else
+            {
+                _guessCount = 0;
+                theButton.Content = GetButtonValue(p);
+                Thread.Sleep(5000);
+                //Clear Button Content after waiting 5 seconds
+                _firstButton.Content = "";
+                theButton.Content = "";
+            }
             Console.WriteLine("I am reacting ");
         }
 
-        public void PrintValueOfButton(Point p)
+        public int GetButtonValue(Point p)
         {
+            return _gameBoard[Convert.ToInt32(p.X), Convert.ToInt32(p.Y)];
+        }
+
+        public void PrintValueOfButton(Point p, Button theButton)
+        {
+            
 
             Console.WriteLine("Button Value = " + _gameBoard[Convert.ToInt32(p.X), Convert.ToInt32(p.Y)]);
         }

@@ -65,12 +65,12 @@ namespace MemoryGame.Views
         private void ButtonOnClick(object sender, RoutedEventArgs e)
         {
             var theButton = sender as Button;
-            var shotPosition = new Point(Grid.GetColumn(theButton), Grid.GetRow(theButton);
+            var shotPosition = new Point(Grid.GetColumn(theButton), Grid.GetRow(theButton));
+            //theButton.Content = _gameModel.GetButtonValue(shotPosition);
 
-
-            _gameModel.PrintValueOfButton(shotPosition);
+            _gameModel.PrintValueOfButton(shotPosition, theButton);
             Console.WriteLine("Button Clicked at (" + Grid.GetRow(theButton) + "," + Grid.GetColumn(theButton) + ")");
-            _gameModel.React(theButton);
+            _gameModel.React(theButton, shotPosition);
         }
     }
 }
