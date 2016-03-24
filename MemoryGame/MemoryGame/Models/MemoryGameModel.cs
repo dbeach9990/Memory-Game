@@ -6,7 +6,6 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
 
 namespace MemoryGame.Models
@@ -35,7 +34,7 @@ namespace MemoryGame.Models
         }
         #endregion
 
-   //     #region METHODS
+        #region METHODS
         public void SetChoice(Point choice)
         {
             if (_choiceOne == null)
@@ -54,6 +53,11 @@ namespace MemoryGame.Models
             Console.WriteLine("I am reacting ");
         }
 
+        public void PrintValueOfButton(Point p)
+        {
+            Console.WriteLine("Button Value = " + _gameBoard[p.X, p.Y]);
+        }
+
         /*
         public void CheckForMatch()
         {
@@ -64,10 +68,11 @@ namespace MemoryGame.Models
                 }
             }
         }
+        */
 
         public void RandomizeGameBoard(int size)
         {
-            for(int z = 0; z < (size * size) / 2)
+            for(int z = 0; z < (size * size) / 2; z++)
             {
                 _boardFiller.Add(z + 1);
                 _boardFiller.Add(z + 1);
@@ -76,13 +81,13 @@ namespace MemoryGame.Models
             {
                 for(int y = 0; y < size; y++)
                 {
-                    
+                    var rando = _rng.Next(0, _boardFiller.Count);
+                    _gameBoard[x, y] = _boardFiller.ElementAt(rando);
+                    _boardFiller.RemoveAt(rando);
                 }
             }
         }
         #endregion
 
-
-    */
     }
 }

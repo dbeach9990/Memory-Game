@@ -29,6 +29,7 @@ namespace MemoryGame.Views
         {
             InitializeComponent();
             _gameModel = new MemoryGameModel();
+            _gameModel.RandomizeGameBoard(10);
             LoadGame();
         }
 
@@ -65,6 +66,7 @@ namespace MemoryGame.Views
         {
             var theButton = sender as Button;
             var shotPosition = new Point(Grid.GetColumn(theButton), Grid.GetRow(theButton));
+            Console.WriteLine(_gameModel.printValueOfButton(shotPosition));
             Console.WriteLine("Button Clicked at (" + Grid.GetRow(theButton) + "," + Grid.GetColumn(theButton) + ")");
             _gameModel.React(theButton);
         }
