@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows;
 using System.Threading;
+using System.Windows.Threading;
 
 namespace MemoryGame.Models
 {
@@ -28,14 +29,20 @@ namespace MemoryGame.Models
         private Button _firstButton;
         private Button _secondButton;
         private int _guessCount = 0;
+        private DispatcherTimer _flipTimer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(2) };
         #endregion
 
         #region CONSTRUCTORS
         public MemoryGameModel()
         {
-
+            _flipTimer.Tick += _flipTimer_Tick;
             _gameBoard = new int[_size, _size];
             _boardFiller = new List<int>();
+        }
+
+        private void _flipTimer_Tick(object sender, EventArgs e)
+        {
+            ResetTiles();
         }
         #endregion
 
@@ -51,11 +58,21 @@ namespace MemoryGame.Models
                // CheckForMatch();
             }
         }
+        public void ResetTiles()
+        {
+            if(_firstButton != null && _secondButton != null)
+            {
+                _firstButton.Content = "";
+                _secondButton.Content = "";
+                _flipTimer.Stop();
+            }
+        }
 
         public void React(Button theButton, Point p)
         {
             if(_guessCount == 0)
             {
+                ResetTiles();
                 _firstButton = theButton;
                 _guessCount++;
                 _firstButton.Content = GetButtonValue(p);
@@ -64,10 +81,10 @@ namespace MemoryGame.Models
             {
                 _guessCount = 0;
                 theButton.Content = GetButtonValue(p);
-                Thread.Sleep(5000);
+                _secondButton = theButton;
+                _flipTimer.Start();
                 //Clear Button Content after waiting 5 seconds
-                _firstButton.Content = "";
-                theButton.Content = "";
+                
             }
             Console.WriteLine("I am reacting ");
         }
@@ -79,8 +96,6 @@ namespace MemoryGame.Models
 
         public void PrintValueOfButton(Point p, Button theButton)
         {
-            
-
             Console.WriteLine("Button Value = " + _gameBoard[Convert.ToInt32(p.X), Convert.ToInt32(p.Y)]);
         }
 
