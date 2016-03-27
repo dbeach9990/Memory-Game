@@ -82,6 +82,11 @@ namespace MemoryGame.Models
                 _guessCount = 0;
                 theButton.Content = GetButtonValue(p);
                 _secondButton = theButton;
+                if(Convert.ToInt32(_firstButton.Content) == GetButtonValue(p)){
+                    Console.WriteLine("You got one!");
+                    _firstButton.IsEnabled = false;
+                    _secondButton.IsEnabled = false;
+                }
                 _flipTimer.Start();
                 //Clear Button Content after waiting 5 seconds
                 
