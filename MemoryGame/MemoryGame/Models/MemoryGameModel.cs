@@ -39,25 +39,14 @@ namespace MemoryGame.Models
             _gameBoard = new int[_size, _size];
             _boardFiller = new List<int>();
         }
+        #endregion
 
+        #region METHODS
         private void _flipTimer_Tick(object sender, EventArgs e)
         {
             ResetTiles();
         }
-        #endregion
 
-        #region METHODS
-        public void SetChoice(Point choice)
-        {
-            if (_choiceOne == null)
-            {
-                _choiceOne = choice;
-            }
-            else {
-                _choiceTwo = choice;
-               // CheckForMatch();
-            }
-        }
         public void ResetTiles()
         {
             if(_firstButton != null && _secondButton != null)
@@ -76,12 +65,15 @@ namespace MemoryGame.Models
                 _firstButton = theButton;
                 _guessCount++;
                 _firstButton.Content = GetButtonValue(p);
+                _choiceOne = p;
             }
             else
             {
                 _guessCount = 0;
                 theButton.Content = GetButtonValue(p);
                 _secondButton = theButton;
+
+                //Check for a match, if so, disable buttons.
                 if(Convert.ToInt32(_firstButton.Content) == GetButtonValue(p)){
                     Console.WriteLine("You got one!");
                     _firstButton.IsEnabled = false;
@@ -104,17 +96,8 @@ namespace MemoryGame.Models
             Console.WriteLine("Button Value = " + _gameBoard[Convert.ToInt32(p.X), Convert.ToInt32(p.Y)]);
         }
 
-        /*
-        public void CheckForMatch()
-        {
-            if (_choiceOne != null && _choiceTwo != null){ }
-                if (_gameBoard[_choiceOne.X, _choiceOne.Y] == _gameBoard[_choiceTwo.X, _choiceTwo.Y])
-                {
-
-                }
-            }
-        }
-        */
+        
+        
 
         public void RandomizeGameBoard(int size)
         {
