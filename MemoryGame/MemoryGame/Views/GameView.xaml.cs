@@ -31,6 +31,7 @@ namespace MemoryGame.Views
             _gameModel = new MemoryGameModel();
             _gameModel.RandomizeGameBoard(4);
             LoadGame();
+            outputLabel.Content = _gameModel.GetMatchesLeft();
         }
 
         public void LoadGame()

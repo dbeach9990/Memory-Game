@@ -29,6 +29,7 @@ namespace MemoryGame.Models
         private Button _firstButton;
         private Button _secondButton;
         private int _guessCount = 0;
+        private int _matchesRemaining;
         private DispatcherTimer _flipTimer = new DispatcherTimer { Interval = TimeSpan.FromSeconds(2) };
         #endregion
 
@@ -38,6 +39,7 @@ namespace MemoryGame.Models
             _flipTimer.Tick += _flipTimer_Tick;
             _gameBoard = new int[_size, _size];
             _boardFiller = new List<int>();
+            _matchesRemaining = (_size * _size) / 2;
         }
         #endregion
 
@@ -55,6 +57,10 @@ namespace MemoryGame.Models
                 _secondButton.Content = "";
                 _flipTimer.Stop();
             }
+        }
+         public int GetMatchesLeft()
+        {
+            return _matchesRemaining;
         }
 
         public void React(Button theButton, Point p)
@@ -76,6 +82,7 @@ namespace MemoryGame.Models
                 //Check for a match, if so, disable buttons.
                 if(Convert.ToInt32(_firstButton.Content) == GetButtonValue(p)){
                     Console.WriteLine("You got one!");
+                    _matchesRemaining -= 1;
                     _firstButton.IsEnabled = false;
                     _secondButton.IsEnabled = false;
                 }
